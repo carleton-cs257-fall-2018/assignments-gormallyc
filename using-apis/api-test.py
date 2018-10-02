@@ -13,7 +13,6 @@ def get_list_of_places(query):
     query =query.replace(' ', '+')
     base_url = 'https://maps.googleapis.com/maps/api/place/textsearch/json?query={0}&key=AIzaSyC8juvEv-Mws-Ei7RWCGD_ABLXLsmy2Su4'
     url = base_url.format(query)
-    print(url)
     #gets and decodes json data from the API
     data_from_server = urllib.request.urlopen(url).read()
     string_from_server = data_from_server.decode('utf-8')
@@ -34,16 +33,12 @@ def get_more_information(name_query):
     name_query = name_query.replace(' ', '%20')
     base_url = 'https://maps.googleapis.com/maps/api/place/findplacefromtext/json?&input={0}&inputtype=textquery&fields=name,formatted_address,rating,opening_hours,types&key=AIzaSyC8juvEv-Mws-Ei7RWCGD_ABLXLsmy2Su4'
     url = base_url.format(name_query)
-    print(url)
-    #gets and decodes json data from the API 
+    #gets and decodes json data from the API
     data_from_server = urllib.request.urlopen(url).read()
     string_from_server = data_from_server.decode('utf-8')
     place_information = json.loads(string_from_server)
-    print(place_information)
     return_information_list = []
     for info_chunk in place_information['candidates']:
-        print(info_chunk)
-        print(info_chunk.keys())
         place_name = info_chunk['name']
         place_location = info_chunk['formatted_address']
         place_rating = info_chunk['rating']
