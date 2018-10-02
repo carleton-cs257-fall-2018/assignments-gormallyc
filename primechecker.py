@@ -57,4 +57,3 @@ class PrimeChecker:
             return False
 
         return self.sieve[n] == 0
-

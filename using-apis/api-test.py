@@ -3,7 +3,7 @@
     Conor Gormally
 '''
 
-import sys, argparse, json, urllib.request, requests
+import sys, argparse, json, urllib.request
 
 def get_list_of_places(query):
     '''
